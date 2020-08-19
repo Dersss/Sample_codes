@@ -4,7 +4,7 @@ class JobsController < ApplicationController
     # GET /jobs
     def index
         @jobs = Job.all
-        json_response(@Jobs)
+        json_response(@jobs)
     end
 
     # POST /Jobs

@@ -4,5 +4,6 @@ Rails.application.routes.draw do
     resources :applications
   end
 
-  root to: 'pages#home'
+  resources :pages
+  root 'jobs#index'
 end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_18_180740) do
+ActiveRecord::Schema.define(version: 2020_08_19_174705) do
 
   create_table "applications", force: :cascade do |t|
     t.string "name"
@@ -22,6 +22,7 @@ ActiveRecord::Schema.define(version: 2020_08_18_180740) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "job_id", null: false
+    t.boolean "offer_given"
     t.index ["job_id"], name: "index_applications_on_job_id"
   end
 

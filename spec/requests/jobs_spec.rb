@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe 'Jobs API', type: :request do
   # initialize test data 
-  let!(:jobs) { create_list(:job, 1, requirements: 'Requirements') }
+  let!(:jobs) { create_list(:job, 10, requirements: 'Requirements') }
   let(:job_id) { jobs.first.id }
 
   # Test suite for GET /jobs
@@ -10,7 +10,10 @@ RSpec.describe 'Jobs API', type: :request do
     # make HTTP get request before each example
     before { get '/jobs' }
 
-    
+    it 'returns jobs' do
+      # Note `json` is a custom helper to parse JSON responses
+      expect(response.body).not_to be_empty
+    end
 
     it 'returns status code 200' do
       expect(response).to have_http_status(200)
