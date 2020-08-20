@@ -33,7 +33,7 @@ class ApplicationsController < ApplicationController
   private
 
   def application_params
-    params.permit(:name, :job_id, :justifications, :code, :email, :description, :additional_links)
+    params.permit(:name, :job_id, :justifications, :code, :email, :description, :additional_links, :offer_given, :created_at, :updated_at, :id, :application)
   end
 
   def set_job
