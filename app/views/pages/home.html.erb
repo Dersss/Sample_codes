@@ -4,9 +4,10 @@
 <h3>Personal Information:</h3>
 <% ja = Application.new %>
 <%= form_for :application do |f| %>
-    <p>Name: </p><%= f.text_field :name, value: params[:name] %>
-    <p>Email: </p><%= f.text_field :email, value: params[:email] %>
-    <p>Justifications: </p><%= f.text_field :justifications, value: params[:just]  %>
+    <p>Name: </p><%= f.text_field :name, :value => params[:name] %>
+    <p>Email: </p><%= f.text_field :email, :value => params[:email] %>
+    <p>Justifications: </p><%= f.text_field :justifications, :value => params[:just]  %>
+    <%= f.submit 'Save' %>
 <% end %>
 
 <hr>
@@ -25,8 +26,8 @@
             <td><p><%= j.position %></p<</td>
             <td><p><%= j.description %></p<</td>
             <td><p><%= j.requirements %></p<</td>
-            <% @job_id = j.id %>
-            <%= link_to "Apply", apply_path(@job_id) %>
+            <% params[:job_id] = j.id %>
+            <%= link_to "Apply", apply_url(@job_id) %>
         </tr>
     <% end %>
 
