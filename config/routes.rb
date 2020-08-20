@@ -4,6 +4,7 @@ Rails.application.routes.draw do
     resources :applications
   end
 
-  resources :pages
-  root 'jobs#index'
+
+  get '/jobs/:id', to: 'pages#apply', as: 'apply'
+  root 'pages#home'
 end

@@ -30,6 +30,11 @@ class JobsController < ApplicationController
         head :no_content
     end
 
+    def apply 
+        @job = Job.find(params[:id])
+        
+    end
+
     private
 
     def job_params

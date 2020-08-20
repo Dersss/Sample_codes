@@ -1,1 +1,33 @@
-<h1>Spida Software Job/Application Tracker</h1>
+<h1>Spida Software Job/Application Tracker : Andrew Schneider</h1>
+
+<hr>
+<h3>Personal Information:</h3>
+<% ja = Application.new %>
+<%= form_for :application do |f| %>
+    <p>Name: </p><%= f.text_field :name, value: params[:name] %>
+    <p>Email: </p><%= f.text_field :email, value: params[:email] %>
+    <p>Justifications: </p><%= f.text_field :justifications, value: params[:just]  %>
+<% end %>
+
+<hr>
+<h3>Open Positions:</h3>
+
+<table>
+  <tr>
+    <th>Position</th>
+    <th>Description</th>
+    <th>Requirements</th>
+    <th>Apply</th>
+  </tr>
+    
+    <% @jobs.each do |j| %>
+        <tr>
+            <td><p><%= j.position %></p<</td>
+            <td><p><%= j.description %></p<</td>
+            <td><p><%= j.requirements %></p<</td>
+            <% @job_id = j.id %>
+            <%= link_to "Apply", apply_path(@job_id) %>
+        </tr>
+    <% end %>
+
+</table>
